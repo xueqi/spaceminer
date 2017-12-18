@@ -30,3 +30,5 @@ part = 0
 item = 0
 
 totalParts = 2
+
+exitItem = 0

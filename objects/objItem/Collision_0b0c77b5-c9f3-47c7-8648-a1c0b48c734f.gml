@@ -6,9 +6,7 @@ if collision {
 	} else if image_index == objControll.EXIT {
 		show_debug_message("GOT EXIT")
 		// if all parts collected, open the exit
-		if objControll.part == objControll.totalParts {
-			image_index = objControll.EXITOPEN
-		}
+
 	} else if image_index == objControll.EXITOPEN {
 		room_goto(roomLevel2)
 	}
@@ -27,6 +25,9 @@ if collision {
 	else if image_index == objControll.PART1 {
 		show_debug_message("GOT PART1")
 		objControll.part += 1
+		if objControll.part == objControll.totalParts {
+			objControll.exitItem.image_index = objControll.EXITOPEN
+		}
 		collision = false
 		alarm_set(0, 1)
 	} 
@@ -35,6 +36,9 @@ if collision {
 		objControll.part += 1
 		collision = false
 		alarm_set(0, 1)
+		if objControll.part == objControll.totalParts {
+			objControll.exitItem.image_index = objControll.EXITOPEN
+		}
 	}
 	
 }
