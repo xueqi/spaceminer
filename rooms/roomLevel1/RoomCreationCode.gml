@@ -1,6 +1,7 @@
 
 
 if global.level == 1 {
+
 	with objControll {
 		ds_grid_set(mapObjects, 0, 3, STONE);
 		ds_grid_set(mapObjects, 0, 6, STONE);
@@ -70,6 +71,13 @@ if global.level == 1 {
 		
 		ds_list_add(0, PART3)
 		ds_list_add(0, PART4)
+		totalFuel = 50
+		fuel = 50
+	} 
+} else if global.level == 3 {
+	with objControll {
+		totalFuel = 10
+		fuel = 10
 	}
 }
 for (var i = 0; i < objControll.nrows; ++i) {
