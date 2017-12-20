@@ -4,7 +4,12 @@
 if enabled and canMove and (!moving) {
 	var nextx = idxx
 	var nexty = idxy
-	if keyboard_check(vk_left) {
+	
+	if mouse_check_button(mb_left) {
+			nextx = F("indexXAt", mouse_x, mouse_y);
+			nexty = F("indexYAt", mouse_x, mouse_y);
+	}
+	else if keyboard_check(vk_left) {
 		// move left
 		nextx -= 1
 	} 
@@ -20,10 +25,15 @@ if enabled and canMove and (!moving) {
 		// move down
 		nexty += 1
 	}
-	if nextx != idxx and nextx >= 0 and nextx < objControll.ncols {
+	if nextx < 0 nextx = 0
+	if nextx >= objControll.ncols nextx = objControll.ncols - 1
+	if nexty < 0 nexty = 0
+	if nexty >= objControll.ncols nexty = objControll.ncols - 1
+	
+	if nextx == idxx and abs(nexty - idxy) == 1 {
 		moving = true
 	}
-	if nexty != idxy and nexty >= 0 and nexty < objControll.nrows {
+	if nexty == idxy and abs(nextx - idxx) == 1 {
 		moving = true
 	}
 	if moving {
@@ -34,13 +44,18 @@ if enabled and canMove and (!moving) {
 				nextobj = 0
 			}
 		}
-		if nextobj <= 0 or nextobj.image_index != objControll.STONE {
+		if objControll.fuel <= 0 {
+			moving = false;
+			
+		}
+		else if nextobj <= 0 or objControll.current_util == objControll.BOMB or nextobj.image_index != objControll.STONE {
 			dstX = F("x", nexty, nextx)
 			dstY = F("y", nexty, nextx)
 			idxx = nextx
 			idxy = nexty
 			//show_debug_message("dstX: " + string(dstX) + ", dstY: " + string(dstY))
 			spd = original_spd
+			objControll.fuel -= 1
 		} else {
 			moving = false;
 		}

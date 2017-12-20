@@ -4,6 +4,7 @@
 enabled = true
 canMove = true
 moving = false
+charging = false
 // current status
 fuel = 0
 gold = 0

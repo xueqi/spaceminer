@@ -16,4 +16,18 @@ if funcname == "itemAt" {
 	var id1 = argument1;
 	var id2 = argument2;
 	return objControll.top + objControll.blockHeight * (id1 + 0.5);
+} else if funcname == "indexXAt" {
+	var xx = argument1;
+	var yy = argument2;
+	var a = floor((xx - objControll.left) / objControll.blockWidth);
+	if a < 0 a = 0
+	if a >= objControll.ncols a = objControll.ncols - 1
+	return a;
+} else if funcname == "indexYAt" {
+	var xx = argument1;
+	var yy = argument2;
+	var a = floor((yy - objControll.top) / objControll.blockHeight);
+	if a < 0 a = 0
+	if a >= objControll.nrows a = objControll.nrows - 1
+	return a
 }
