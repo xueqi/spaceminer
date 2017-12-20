@@ -202,7 +202,7 @@
             "Key": "5a2f2210-3c60-499c-ac3c-008f544cde9a",
             "Value": {
                 "id": "84d788a7-597e-46d3-8ce0-dedc8c04d0b2",
-                "resourcePath": "sounds\\sound1\\sound1.yy",
+                "resourcePath": "sounds\\sndMove\\sndMove.yy",
                 "resourceType": "GMSound"
             }
         },
@@ -316,6 +316,14 @@
                 "id": "06a73234-13ea-4b63-a823-ee5f2d5a3781",
                 "resourcePath": "rooms\\roomHelp\\roomHelp.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "a63975df-9b80-443a-9752-84d39859baa8",
+            "Value": {
+                "id": "aeac706c-0fee-490c-a9b8-5da73e6d3278",
+                "resourcePath": "sounds\\sndVictory\\sndVictory.yy",
+                "resourceType": "GMSound"
             }
         },
         {

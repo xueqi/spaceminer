@@ -56,6 +56,7 @@ if enabled and canMove and (!moving) {
 			//show_debug_message("dstX: " + string(dstX) + ", dstY: " + string(dstY))
 			spd = original_spd
 			objControll.fuel -= 1
+			audio_play_sound(sndMove, 1, 1)
 		} else {
 			moving = false;
 		}
@@ -82,7 +83,7 @@ if moving {
 	} else {
 		speed = 0
 		moving = false
-		
+		audio_stop_sound(sndMove)
 		show_debug_message("Arrive at: x:" + string(x) + ", y:" + string(y))
 		
 	}
